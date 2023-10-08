@@ -189,6 +189,8 @@ export default {
           message: "status update success!",
           type: "success",
         });
+      }).catch(()=>{
+        this.$message.error("status update failed!")
       });
     },
 

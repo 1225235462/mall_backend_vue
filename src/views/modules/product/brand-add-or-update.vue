@@ -84,6 +84,7 @@ export default {
         ],
         firstLetter: [
           {
+            required: true,
             validator: (rule, value, callback) => {
               if (value == "") {
                 callback(new Error("首字母必须填写"));
@@ -98,6 +99,7 @@ export default {
         ],
         sort: [
           {
+            required: true,
             validator: (rule, value, callback) => {
               if (value === "") {
                 callback(new Error("排序字段必须填写"));
