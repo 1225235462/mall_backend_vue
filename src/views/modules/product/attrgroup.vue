@@ -137,12 +137,13 @@
 </template>
 
 <script>
-import Category from "../commonn/category.vue";
+import Category from "../common/category.vue";
 import AddOrUpdate from "./attrgroup-add-or-update";
 export default {
   components: { Category, AddOrUpdate },
   data() {
     return {
+      catId: 0,
       dataForm: {
         key: "",
       },
@@ -162,12 +163,16 @@ export default {
     treenodeclick(data, node, component) {
       console.log("attrgroup category", data, node, component);
       console.log("catId", data.catId);
+      if (node.level == 3) {
+        this.catId = data.catId;
+        this.getDataList();
+      }
     },
     // 获取数据列表
     getDataList() {
       this.dataListLoading = true;
       this.$http({
-        url: this.$http.adornUrl("/product/attrgroup/list"),
+        url: this.$http.adornUrl(`/product/attrgroup/list/${this.catId}`),
         method: "get",
         params: this.$http.adornParams({
           page: this.pageIndex,
