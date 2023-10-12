@@ -36,6 +36,18 @@
               >批量删除</el-button
             >
           </el-form-item>
+          <el-form-item style="float: right">
+            <el-button
+              type="info"
+              @click="
+                () => {
+                  this.catId = 0;
+                  this.getDataList();
+                }
+              "
+              >返回</el-button
+            >
+          </el-form-item>
         </el-form>
         <el-table
           :data="dataList"
