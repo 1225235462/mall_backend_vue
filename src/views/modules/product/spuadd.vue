@@ -399,7 +399,7 @@ export default {
   props: {},
   data() {
     return {
-      multipleType: true,
+      multipleType: false,
       catPathSub: null,
       brandIdSub: null,
       uploadDialogVisible: false,
